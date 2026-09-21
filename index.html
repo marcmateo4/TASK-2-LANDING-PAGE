@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marc Brew — Coffee & Roastery</title>
+  <meta name="description" content="Marc Brew — handcrafted coffee, small-batch roasted beans, and a cozy café. Pure HTML layout, no CSS or scripts." />
+
+  <!-- Internal CSS -->
+  <style>
+    :root{
+      --accent:#7b3f00;
+      --muted:#6b6b6b;
+      --bg:#fffdf9;
+      --card:#ffffff;
+      --radius:8px;
+      --max-width:1100px;
+      --gutter:16px;
+    }
+
+    /* Reset & base */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg,#fff #f9f7f4);
+      color: #222;
+      line-height: 1.45;
+      -webkit-font-smoothing:antialiased;
+      padding-bottom: 40px;
+    }
+    .container { max-width:var(--max-width); margin:0 auto; padding:0 16px; }
+
+    /* Header */
+    header {
+      background: white;
+      padding:18px 12px;
+      border-bottom:1px solid #eee;
+    }
+    header h1 { margin:0; font-family: 'Georgia', serif; color:var(--accent); font-size:1.9rem; }
+    header p { margin:6px 0 12px; color:var(--muted); }
+    nav { margin-top:6px; font-size:0.95rem; }
+    nav a { color:#444; text-decoration:none; padding:6px 8px; border-radius:6px; }
+    nav a:hover { background:#fff3e6; color:var(--accent); }
+
+    /* Layout: table kept but style improves appearance */
+    .layout-table { width:100%; border-collapse:separate; border-spacing:12px; }
+
+    /* Cards & sections */
+    .card { background:var(--card); padding:14px; margin-bottom:16px; border-radius:var(--radius); box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+    .hero img { width:100%; height:auto; display:block; border-radius:8px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+
+    /* Tables */
+    table.menu, table.hours { border-collapse: collapse; width:100%; }
+    table.menu th, table.hours th { text-align:left; padding:10px; background:linear-gradient(90deg,#fff6ef,#fff0e0); color:var(--accent); }
+    table.menu td, table.hours td { padding:10px; border-top:1px solid #f0d9c7; }
+    table.hours td { border: 1px solid #eee; }
+
+    /* Gallery */
+    .gallery-table { width:100%; border-collapse: separate; border-spacing: 10px; }
+    .gallery-table img { display:block; width:100%; height:auto; border-radius:6px; }
+
+    /* Forms */
+    input[type="text"], input[type="email"], input[type="number"], select, textarea {
+      width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:6px; font-size:0.95rem;
+    }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #d69a6a; box-shadow: 0 0 0 3px rgba(214,154,106,0.08); }
+    fieldset { border:1px solid #eee; border-radius:8px; padding:10px; }
+    legend { padding:0 6px; font-weight:600; }
+
+    /* Buttons */
+    .btn {
+      display:inline-block; background:var(--accent); color:#fff; border:none; padding:8px 12px; border-radius:6px;
+      cursor:pointer; text-decoration:none; font-weight:600;
+    }
+    .btn:hover { opacity:0.95; transform: translateY(-1px); }
+    .btn-muted { background:#f4f4f4; color:#444; border:1px solid #eee; }
+
+    /* Footer */
+    footer { margin-top:18px; padding:18px 0; border-top:1px solid #eee; color:#333; }
+    footer a { color:var(--accent); }
+
+    /* Responsive: stack columns on small screens */
+    @media (max-width: 800px) {
+      .layout-table, .layout-table tr, .layout-table td { display:block; width:auto; }
+      .layout-table td { margin-bottom:12px; }
+      .gallery-table td { display:inline-block; width:48%; }
+    }
+    @media (max-width:480px) {
+      .gallery-table td { width:100%; display:block; margin-bottom:10px; }
+    }
+
+    /* Accessibility */
+    a:focus, button:focus, input:focus { outline: 3px solid rgba(123,63,0,0.12); outline-offset: 2px; }
+  </style>
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Marc Brew</h1>
+      <p>Handcrafted coffee • Small-batch roastery • Cozy café</p>
+      <nav aria-label="Main navigation">
+        <a href="#hero">Home</a> |
+        <a href="#about">About</a> |
+        <a href="#menu">Menu</a> |
+        <a href="#gallery">Gallery</a> |
+        <a href="#order">Order</a> |
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Top-level two-column layout using a table -->
+  <main class="container" style="max-width:var(--max-width); margin:20px auto;">
+    <table class="layout-table" cellpadding="10" cellspacing="0" border="0">
+      <tr>
+        <!-- Main column -->
+        <td valign="top" width="70%">
+
+          <!-- Hero -->
+          <section id="hero" class="card hero">
+            <figure style="margin:0;">
+              <img src="C:\Users\janmarc\Downloads\60fb7db2-46b2-4b40-80d9-757b80641222.jpg" alt="Cup of coffee on a wooden table" width="900" height="400" />
+              <figcaption style="padding:10px 6px; color:#333;"><strong>Wake up with Marc Brew</strong> — Small-batch roasted, ethically sourced beans.</figcaption>
+            </figure>
+          </section>
+
+          <!-- About -->
+          <section id="about" class="card">
+            <h2>About Marc Brew</h2>
+            <p>Marc Brew is a cozy coffee shop created for people who enjoy good coffee, delicious food, and a relaxing atmosphere.</p>
+
+            <h3>Why our coffee?</h3>
+            <ul>
+              <li>Direct trade beans</li>
+              <li>Fresh daily roasting</li>
+              <li>Friendly neighborhood café</li>
+            </ul>
+          </section>
+
+          <!-- Menu using a table -->
+          <section id="menu" class="card">
+            <h2>Menu</h2>
+            <table class="menu" border="1" cellpadding="8" cellspacing="0" width="100%">
+              <tr>
+                <th>Drink</th>
+                <th>Price</th>
+              </tr>
+              <tr>
+                <td>Espresso</td>
+                <td>₱100</td>
+              </tr>
+              <tr>
+                <td>Americano</td>
+                <td>₱130</td>
+              </tr>
+              <tr>
+                <td>Latte</td>
+                <td>₱120</td>
+              </tr>
+              <tr>
+                <td>Cappuccino</td>
+                <td>₱90</td>
+              </tr>
+              <tr>
+                <td>Spanish Latte</td>
+                <td>₱120</td>
+              </tr>
+              <tr>
+                <td>Ice Mocha</td>
+                <td>₱125</td>
+              </tr>
+              <tr>
+                <td>Vanilla Latte</td>
+                <td>₱130</td>
+              </tr>
+            </table>
+          </section>
+
+          <!-- Pastries & Snacks using a table -->
+          <section id="pastries" class="card">
+            <h2>Pastries & Snacks</h2>
+            <table class="menu" border="1" cellpadding="8" cellspacing="0" width="100%">
+              <tr>
+                <th>Food</th>
+                <th>Price</th>
+              </tr>
+              <tr>
+                <td>Cinnamon Roll</td>
+                <td>₱100</td>
+              </tr>
+              <tr>
+                <td>Nachos</td>
+                <td>₱120</td>
+              </tr>
+              <tr>
+                <td>Chocolate Muffin</td>
+                <td>₱90</td>
+              </tr>
+            </table>
+          </section>
+
+          <!-- Gallery -->
+          <section id="gallery" class="card">
+            <h2>Gallery</h2>
+            <p>Marc Brew Pastries & Coffee</p>
+            <table class="gallery-table" cellpadding="6" cellspacing="0" border="0">
+              <tr>
+                <td style="width:33%;">
+                  <figure style="margin:0;">
+                    <img src="C:\Users\janmarc\Downloads\a96268da-81c7-4c6e-bc2e-7f42480c783c.jpg" alt="Coffee beans in a burlap sack" width="300" height="200" />
+                    <figcaption style="font-size:0.9rem; color:#666; padding-top:6px;">Marc Brew</figcaption>
+                  </figure>
+                </td>
+                <td style="width:33%;">
+                  <figure style="margin:0;">
+                    <img src="C:\Users\janmarc\Downloads\b1224395-175b-4610-bc91-3b892f0a3d4c.jpg" alt="Cozy café interior with people" width="300" height="200" />
+                    <figcaption style="font-size:0.9rem; color:#666; padding-top:6px;">Pastries</figcaption>
+                  </figure>
+                </td>
+                <td style="width:33%;">
+                  <figure style="margin:0;">
+                    <img src="C:\Users\janmarc\Downloads\caf13ae9-de50-4f19-8136-30677546e1dc.jpg" alt="Fresh espresso shot pouring" width="300" height="200" />
+                    <figcaption style="font-size:0.9rem; color:#666; padding-top:6px;">Foods</figcaption>
+                  </figure>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <figure style="margin:0;">
+                    <img src="C:\Users\janmarc\Downloads\59001b6b-ad57-47a9-9577-d03460ac6fbc.jpg" alt="Pastry on a plate next to coffee" width="300" height="200" />
+                    <figcaption style="font-size:0.9rem; color:#666; padding-top:6px;">Drinks</figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure style="margin:0;">
+                    <img src="C:\Users\janmarc\Downloads\47295ced-5ac9-488d-8567-d1b4db1236e4.jpg" alt="Barista pouring latte art" width="300" height="200" />
+                    <figcaption style="font-size:0.9rem; color:#666; padding-top:6px;">Interior</figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <figure style="margin:0;">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=80" alt="Bags of roasted coffee ready for sale" width="300" height="200" />
+                    <figcaption style="font-size:0.9rem; color:#666; padding-top:6px;">Bags to go</figcaption>
+                  </figure>
+                </td>
+              </tr>
+            </table>
+          </section>
+
+          <!-- Article / Blog sample -->
+          <article class="card">
+            <h2>From the Roaster</h2>
+            <p><strong>August 2026:</strong> We're excited to share our journey with you.</p>
+            <details>
+              <summary>More about this roast</summary>
+              <p>Marc Brew was born from a simple idea to create a cozy space where great coffee, delicious food, and good vibes come together.</p>
+            </details>
+          </article>
+
+        </td>
+
+        <!-- Sidebar column -->
+        <td valign="top" width="30%">
+
+          <aside class="card" style="padding:12px;">
+            <h2>Order Online</h2>
+
+            <!-- Order form with controls -->
+            <form id="order" action="#" method="post">
+              <fieldset>
+                <legend>Place an order</legend>
+
+                <label for="o-name">Name:</label><br />
+                <input type="text" id="o-name" name="customer_name" required /><br /><br />
+
+                <label for="o-email">Email:</label><br />
+                <input type="email" id="o-email" name="customer_email" required /><br /><br />
+
+                <label for="product">Product:</label><br />
+                <select id="product" name="product">
+                  <option value="espresso">Espresso (Shot) - ₱100</option>
+                  <option value="latte">Latte - ₱120</option>
+                  <option value="coldbrew">Ice Mocha - ₱125</option>
+                  <option value="beans250">Beans 250g - ₱150</option>
+                  <option value="beans1kg">Beans 1kg - ₱250</option>
+                </select><br /><br />
+
+                <label for="qty">Quantity:</label><br />
+                <input type="number" id="qty" name="quantity" value="1" min="1" /><br /><br />
+
+                <label>Pickup or Delivery:</label><br />
+                <input type="radio" id="pickup" name="fulfill" value="pickup" checked />
+                <label for="pickup">Pickup</label><br />
+                <input type="radio" id="delivery" name="fulfill" value="delivery" />
+                <label for="delivery">Delivery</label><br /><br />
+
+                <label for="notes">Notes:</label><br />
+                <textarea id="notes" name="notes" rows="3" cols="25" placeholder="Extra shot, milk choice..."></textarea><br /><br />
+
+                <input class="btn" type="submit" value="Submit Order" />
+                <input class="btn btn-muted" type="reset" value="Clear" />
+              </fieldset>
+            </form>
+
+            <hr />
+
+            <h3>Newsletter</h3>
+            <form id="newsletter" action="#" method="post">
+              <label for="n-email">Email:</label><br />
+              <input type="email" id="n-email" name="newsletter_email" required /><br /><br />
+              <input class="btn" type="submit" value="Subscribe" />
+            </form>
+
+            <hr />
+
+            <h3>Hours & Location</h3>
+            <table class="hours" border="1" cellpadding="6" cellspacing="0">
+              <tr><th>Day</th><th>Hours</th></tr>
+              <tr><td>Mon–Fri</td><td>7:00 AM – 6:00 PM</td></tr>
+              <tr><td>Sat</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Sun</td><td>8:00 AM – 3:00 PM</td></tr>
+            </table>
+
+            <p><strong>Address:</strong><br />123 Brew Lane<br />Coffeeville, CA 90000</p>
+
+            <h3>Freshness</h3>
+            <p>Roast progress this week:</p>
+            <progress value="70" max="100">70%</progress>
+
+            <h3>Customer rating</h3>
+            <meter value="4.6" min="0" max="5">4.6/5</meter>
+
+          </aside>
+
+        </td>
+      </tr>
+    </table>
+  </main>
+
+  <!-- Contact & footer -->
+  <footer>
+    <div class="container">
+      <h2 id="contact">Contact Us</h2>
+      <table width="100%" cellpadding="8" cellspacing="0" border="0">
+        <tr>
+          <td valign="top" width="50%">
+            <form id="contact-form" action="#" method="post">
+              <label for="c-name">Your name:</label><br />
+              <input type="text" id="c-name" name="contact_name" /><br /><br />
+              <label for="c-email">Your email:</label><br />
+              <input type="email" id="c-email" name="contact_email" /><br /><br />
+              <label for="c-message">Message:</label><br />
+              <textarea id="c-message" name="contact_message" rows="4" cols="40"></textarea><br /><br />
+              <input class="btn" type="submit" value="Send Message" />
+            </form>
+          </td>
+          <td valign="top" width="50%">
+            <h3>Follow</h3>
+            <p>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a><br />
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><br />
+              <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
+            </p>
+
+            <h3>Site map</h3>
+            <ul>
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#menu">Menu</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#order">Order</a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+      <p style="margin-top:12px;">2026 Marc Brew, All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
